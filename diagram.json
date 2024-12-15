@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 96.6, "left": -19.8, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -65.7,
+      "left": -138.5,
+      "attrs": { "distance": "2" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -42, "left": 234.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -103.2,
+      "left": 59.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -224,
+      "left": 236,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -42,
+      "left": 272.6,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led3", "top": -42, "left": 311, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -76.5,
+      "left": 359.4,
+      "attrs": { "temperature": "1.8" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "ultrasonic1:VCC", "red", [ "v0" ] ],
+    [ "uno:GND.2", "ultrasonic1:GND", "black", [ "v0" ] ],
+    [ "uno:9", "ultrasonic1:TRIG", "green", [ "v0" ] ],
+    [ "uno:10", "ultrasonic1:ECHO", "green", [ "v0" ] ],
+    [ "uno:GND.1", "led1:C", "black", [ "v0" ] ],
+    [ "uno:13", "led1:A", "green", [ "v0" ] ],
+    [ "uno:12", "bz1:2", "green", [ "v0" ] ],
+    [ "uno:GND.1", "bz1:1", "black", [ "v0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "uno:11", "bz1:2", "green", [ "v0" ] ],
+    [ "uno:6", "led1:A", "green", [ "v0" ] ],
+    [ "uno:GND.1", "led2:C", "black", [ "v0" ] ],
+    [ "uno:GND.1", "led3:C", "black", [ "v0" ] ],
+    [ "uno:5", "led2:A", "green", [ "v0" ] ],
+    [ "uno:4", "led3:A", "green", [ "v0" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
